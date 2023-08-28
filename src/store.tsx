@@ -1,15 +1,38 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Managger } from "./manager";
 
-type UpdateStore<T> = (val: T | ((store: T) => T)) => void;
+type Store = Record<string, unknown>;
+type UpdateStoreNormal<T> = (store: T) => T;
+type UpdateStoreWithPromise<T> = (store: T) => Promise<T>;
+type UpdateStore<T> = (
+  val: T | UpdateStoreNormal<T> | UpdateStoreWithPromise<T>
+) => void;
 type DepFn<T> = (store: T) => unknown[];
 type UseStore<T> = {
   (depsFn?: DepFn<T>): [T, UpdateStore<T>];
   store?: T;
 };
 
-export function createStore<T extends Record<string, unknown>>(initialVal: T) {
-  const manager = new Managger<T>(initialVal);
+export function createStore<T extends Store>(
+  initial: T,
+  initialFn?: (store: T) => Promise<T>
+): UseStore<T>;
+export function createStore<T extends Store>(
+  initial: () => T,
+  initialFn?: (store: T) => Promise<T>
+): UseStore<T>;
+export function createStore<T extends Store>(
+  initial: T | (() => T),
+  initialFn?: (store: T) => Promise<T>
+) {
+  const manager = new Managger<T>(
+    typeof initial == "function" ? initial() : initial
+  );
+
+  initialFn?.(manager.getStore()).then((store) => {
+    manager.setStore(store);
+    manager.notyfy();
+  });
 
   const useStore: UseStore<T> = (depsFn) => {
     const [, setExe] = useState<number>(0);
@@ -41,12 +64,24 @@ export function createStore<T extends Record<string, unknown>>(initialVal: T) {
     }, []);
 
     const updateStore: UpdateStore<T> = (store) => {
-      let newStore: T;
-      if (typeof store === "function") {
-        newStore = store(manager.getStore());
-      } else {
-        newStore = store;
+      if (typeof store !== "function") {
+        manager.setStore(store);
+
+        manager.notyfy();
+        return;
       }
+
+      const newStore = store(manager.getStore());
+
+      if (newStore instanceof Promise) {
+        newStore.then((ret) => {
+          manager.setStore(ret);
+
+          manager.notyfy();
+        });
+        return;
+      }
+
       manager.setStore(newStore);
 
       manager.notyfy();

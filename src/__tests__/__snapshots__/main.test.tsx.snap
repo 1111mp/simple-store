@@ -1,0 +1,453 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test simple-store async update 1`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Tom
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      18
+    </span>
+    <br />
+    <br />
+    <button>
+      update
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store async update 2`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Jim
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      16
+    </span>
+    <br />
+    <br />
+    <button>
+      update
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store basic store 1`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Tom
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      18
+    </span>
+    <br />
+    <button>
+      update
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store basic store 2`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Jim
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      16
+    </span>
+    <br />
+    <button>
+      update
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store depsFn 1`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Tom
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      18
+    </span>
+    <br />
+    <button>
+      grow up
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store depsFn 2`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Tom
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      18
+    </span>
+    <br />
+    <button>
+      grow up
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store hooks for use store 1`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Tom
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      18
+    </span>
+    <br />
+    <button>
+      update
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store hooks for use store 2`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Jim
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      18
+    </span>
+    <br />
+    <button>
+      update
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store multiple component 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      Test
+      <br />
+      name: 
+      <span
+        data-testid="test-name"
+      >
+        Tom
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="test-age"
+      >
+        18
+      </span>
+      <br />
+      <button>
+        update
+      </button>
+    </div>
+    <br />
+    <div>
+      Other
+      <br />
+      name: 
+      <span
+        data-testid="other-name"
+      >
+        Tom
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="other-age"
+      >
+        18
+      </span>
+      <br />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store multiple component 2`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      Test
+      <br />
+      name: 
+      <span
+        data-testid="test-name"
+      >
+        Jim
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="test-age"
+      >
+        16
+      </span>
+      <br />
+      <button>
+        update
+      </button>
+    </div>
+    <br />
+    <div>
+      Other
+      <br />
+      name: 
+      <span
+        data-testid="other-name"
+      >
+        Jim
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="other-age"
+      >
+        16
+      </span>
+      <br />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store multiple component with depsFn 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      Test
+      <br />
+      name: 
+      <span
+        data-testid="test-name"
+      >
+        Tom
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="test-age"
+      >
+        18
+      </span>
+      <br />
+      <button>
+        update
+      </button>
+    </div>
+    <br />
+    <div>
+      Other
+      <br />
+      name: 
+      <span
+        data-testid="other-name"
+      >
+        Tom
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="other-age"
+      >
+        18
+      </span>
+      <br />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store multiple component with depsFn 2`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      Test
+      <br />
+      name: 
+      <span
+        data-testid="test-name"
+      >
+        Jim
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="test-age"
+      >
+        16
+      </span>
+      <br />
+      <button>
+        update
+      </button>
+    </div>
+    <br />
+    <div>
+      Other
+      <br />
+      name: 
+      <span
+        data-testid="other-name"
+      >
+        Tom
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="other-age"
+      >
+        18
+      </span>
+      <br />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store use update promise 1`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Tom
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      18
+    </span>
+    <br />
+    <br />
+    <button>
+      update
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store use update promise 2`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="name"
+    >
+      Jim
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="age"
+    >
+      16
+    </span>
+    <br />
+    <br />
+    <button>
+      update
+    </button>
+  </div>
+</DocumentFragment>
+`;
