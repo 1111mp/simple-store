@@ -1,0 +1,29 @@
+{
+  "name": "simple-store-example",
+  "version": "1.0.0",
+  "description": "The example for simple-store",
+  "homepage": "https://github.com/1111mp/simple-store",
+  "bugs": {
+    "url": "https://github.com/1111mp/simple-store/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1111mp/simple-store/example"
+  },
+  "author": "The1111mp@outlook.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./webpack.config.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.6",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.5.3",
+    "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
