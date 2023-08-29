@@ -1,5 +1,5 @@
 {
-  "name": "simple-store",
+  "name": "@react/simple-store",
   "version": "1.0.0",
   "description": "Manage your data in the easiest way",
   "keywords": [
