@@ -5,9 +5,9 @@ Manage your state in the easiest way for React.
 ## Installation
 
 ```shell
-npm run install @react/simple-store
+npm run install @the1111mp/simple-store
 # Or
-yarn add @react/simple-store
+yarn add @the1111mp/simple-store
 ```
 
 ## Example
@@ -26,7 +26,7 @@ Create a `userStore` through the `createStore` method:
 
 ```typescript
 // user.store.ts
-import { createStore } from "@react/simple-store";
+import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
@@ -97,7 +97,7 @@ export const App: React.FC = () => {
 
 ```typescript
 // user.store.ts
-import { createStore } from "@react/simple-store";
+import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
@@ -153,7 +153,7 @@ export const App: React.FC = () => {
 With the `depsFn` function, you can control the `state` you want to subscribe to to avoid unwanted updates. This is similar to the `deps` parameter of React's `useMemo` or `useEffect`.
 
 ```typescript
-import { createStore } from "@react/simple-store";
+import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
@@ -183,7 +183,7 @@ export function useUserNameStore() {
 
 ```typescript
 // user.store.ts
-import { createStore } from "@react/simple-store";
+import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
@@ -208,7 +208,7 @@ export function useUserStore() {
 
 // App.tsx
 import { Component } from "react";
-import { withStore } from "@react/simple-store";
+import { withStore } from "@the1111mp/simple-store";
 import { useUserStore } from "user.store";
 
 type Props = ReturnType<typeof useUserStore> & {};
@@ -248,7 +248,7 @@ Single store:
 
 ```typescript
 // weather.store.ts
-import { createStore } from "@react/simple-store";
+import { createStore } from "@the1111mp/simple-store";
 
 export type WeatherStore = {
   weather: string;
@@ -312,7 +312,7 @@ export function useWeatherStore() {
 
 // Test.tsx
 import { Component } from "react";
-import { withStore } from "@react/simple-store";
+import { withStore } from "@the1111mp/simple-store";
 import { useWeatherStore } from "./weather.store";
 
 type Props = ReturnType<typeof useWeatherStore> & {};
@@ -359,7 +359,7 @@ Multiple Stores:
 
 ```typescript
 // user.store.ts
-import { createStore } from "@react/simple-store";
+import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
@@ -384,7 +384,7 @@ export function useUsertore() {
 }
 
 // weather.store.ts
-import { createStore } from "@react/simple-store";
+import { createStore } from "@the1111mp/simple-store";
 import { useUserStore } from "./user.store";
 
 export type WeatherStore = {
@@ -428,7 +428,7 @@ In some scenarios, we only want to read the current value of a model, without su
 `useStore.store`:
 
 ```typescript
-import { createStore } from "@react/simple-store";
+import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
