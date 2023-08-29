@@ -1,10 +1,11 @@
 import { Info } from "./Info";
 import Test from "./Test";
+import { Temp } from "./Temp";
 
 import { useUserStore } from "./stores/user.store";
 
 export const App: React.FC = () => {
-  const { age, name, updateName } = useUserStore();
+  const { age, name, updateAge } = useUserStore();
 
   console.log("App update");
 
@@ -18,7 +19,7 @@ export const App: React.FC = () => {
       <br />
       <button
         onClick={() => {
-          updateName();
+          updateAge();
         }}
       >
         update
@@ -30,6 +31,9 @@ export const App: React.FC = () => {
       --------------------------------------------------------
       <br />
       <Test />
+      --------------------------------------------------------
+      <br />
+      <Temp />
     </div>
   );
 };

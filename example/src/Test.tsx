@@ -8,7 +8,8 @@ type Props = ReturnType<typeof useWeatherStore> & {};
 class Test extends Component<Props> {
   render(): React.ReactNode {
     console.log("rerender from Test");
-    const { weather, temperature, updateWeather } = this.props;
+    const { weather, temperature, updateWeather, updateTemperature } =
+      this.props;
     return (
       <div>
         Test
@@ -19,13 +20,18 @@ class Test extends Component<Props> {
         <br />
         <button
           onClick={() => {
-            updateWeather({
-              weather: "hot",
-              temperature: 38,
-            });
+            updateWeather("hot");
           }}
         >
           update weather
+        </button>
+        <br />
+        <button
+          onClick={() => {
+            updateTemperature(30);
+          }}
+        >
+          update temperature
         </button>
       </div>
     );

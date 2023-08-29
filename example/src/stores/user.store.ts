@@ -10,13 +10,11 @@ function fetchAge(duration: number): Promise<number> {
   });
 }
 
-async function name() {}
-
 export const userStore = createStore<UseStore>(
-  () => ({
+  {
     age: 18,
     name: 1,
-  }),
+  },
   async (store) => {
     const age = await fetchAge(3000);
     return { ...store, age };
@@ -26,7 +24,7 @@ export const userStore = createStore<UseStore>(
 export function useUserStore() {
   const [{ age, name }, updateStore] = userStore((store) => [store.name]);
 
-  const updateName = () => {
+  const updateAge = () => {
     updateStore(async (store) => {
       await fetchAge(1000);
       return {
@@ -39,6 +37,6 @@ export function useUserStore() {
   return {
     age,
     name,
-    updateName,
+    updateAge,
   };
 }

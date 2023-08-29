@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Manage your data in the easiest way",
   "keywords": [
-    "simple-store"
+    "simple-store",
+    "react",
+    "reactjs",
+    "react-hooks",
+    "state-management"
   ],
   "homepage": "https://github.com/1111mp/simple-store",
   "bugs": {
