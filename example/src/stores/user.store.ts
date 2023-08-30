@@ -10,7 +10,7 @@ function fetchAge(duration: number): Promise<number> {
   });
 }
 
-export const userStore = createStore<UseStore>(
+export const [userStore, resetStore] = createStore<UseStore>(
   {
     age: 18,
     name: 1,

@@ -31,7 +31,7 @@ import { createStore } from "@the1111mp/simple-store";
 type UseStore = { name: string; age: number };
 
 // directly assign the initialized value
-export const userStore = createStore<UseStore>({
+export const [userStore, resetStore] = createStore<UseStore>({
   name: "Tom",
   age: 18,
 });
@@ -39,7 +39,7 @@ export const userStore = createStore<UseStore>({
 // Or
 
 // Use a function to get the initialized value （sync）
-export const userStore = createStore<UseStore>(() => {
+export const [userStore, resetStore] = createStore<UseStore>(() => {
   // you can do something
 
   return {
@@ -52,7 +52,7 @@ export const userStore = createStore<UseStore>(() => {
 
 // Use a function to get the initialized value (async)
 // Remember this will triggers an update
-export const userStore = createStore<UseStore>(
+export const [userStore, resetStore] = createStore<UseStore>(
   { name: "", age: 0 },
   async () => {
     // you can do something
@@ -101,7 +101,7 @@ import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
-const userStore = createStore<UseStore>({
+const [userStore] = createStore<UseStore>({
   name: "Tom",
   age: 18,
 });
@@ -157,7 +157,7 @@ import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
-const userStore = createStore<UseStore>({
+const [userStore] = createStore<UseStore>({
   name: "Tom",
   age: 18,
 });
@@ -187,7 +187,7 @@ import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
-const userStore = createStore<UseStore>({
+const [userStore] = createStore<UseStore>({
   name: "Tom",
   age: 18,
 });
@@ -255,7 +255,7 @@ export type WeatherStore = {
   temperature: number;
 };
 
-export const weatherStore = createStore<WeatherStore>({
+export const [weatherStore] = createStore<WeatherStore>({
   weather: "sunny",
   temperature: 28,
 });
@@ -363,7 +363,7 @@ import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
-export const userStore = createStore<UseStore>({
+export const [userStore] = createStore<UseStore>({
   name: "Tom",
   age: 18,
 });
@@ -392,7 +392,7 @@ export type WeatherStore = {
   temperature: number;
 };
 
-export const weatherStore = createStore<WeatherStore>({
+export const [weatherStore] = createStore<WeatherStore>({
   weather: "sunny",
   temperature: 28,
 });
@@ -432,7 +432,7 @@ import { createStore } from "@the1111mp/simple-store";
 
 type UseStore = { name: string; age: number };
 
-export const userStore = createStore<UseStore>({
+export const [userStore] = createStore<UseStore>({
   name: "Tom",
   age: 18,
 });
@@ -454,15 +454,16 @@ export function useInfoStore() {
 
 ```typescript
 type Store = Record<string, unknown>;
+type ResetStore = (notify?: boolean) => void;
 
 export declare function createStore<T extends Store>(
   initial: T,
   initialFn?: (store: T) => Promise<T>
-): UseStore<T>;
+): [UseStore<T>, ResetStore];
 export declare function createStore<T extends Store>(
   initial: () => T,
   initialFn?: (store: T) => Promise<T>
-): UseStore<T>;
+): [UseStore<T>, ResetStore];
 ```
 
 Create a Store.
@@ -484,6 +485,16 @@ type UseStore<T> = {
 ```
 
 Call the return value of the createStore function.
+
+#### resetStore
+
+Reset your store data.
+
+```typescript
+type ResetStore = (notify?: boolean) => void;
+```
+
+The param of `notify` default is `true`, reset store data then notify to trigger once update.
 
 #### withStore
 

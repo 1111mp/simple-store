@@ -7,7 +7,7 @@ export type WeatherStore = {
   temperature: number;
 };
 
-export const weatherStore = createStore<WeatherStore>({
+export const [weatherStore, resetStore] = createStore<WeatherStore>({
   weather: "sunny",
   temperature: 28,
 });

@@ -17,7 +17,7 @@ function sleep(duration: number): Promise<void> {
 
 describe("test simple-store", () => {
   test("basic store", () => {
-    const userStore = createStore<UserStore>({
+    const [userStore] = createStore<UserStore>({
       name: "Tom",
       age: 18,
     });
@@ -60,7 +60,7 @@ describe("test simple-store", () => {
   });
 
   test("hooks for use store", () => {
-    const userStore = createStore<UserStore>({
+    const [userStore] = createStore<UserStore>({
       name: "Tom",
       age: 18,
     });
@@ -115,7 +115,7 @@ describe("test simple-store", () => {
   });
 
   test("multiple component", () => {
-    const userStore = createStore<UserStore>({
+    const [userStore] = createStore<UserStore>({
       name: "Tom",
       age: 18,
     });
@@ -185,7 +185,7 @@ describe("test simple-store", () => {
   });
 
   test("depsFn", () => {
-    const userStore = createStore<UserStore>({
+    const [userStore] = createStore<UserStore>({
       name: "Tom",
       age: 18,
     });
@@ -230,7 +230,7 @@ describe("test simple-store", () => {
   });
 
   test("multiple component with depsFn", () => {
-    const userStore = createStore<UserStore>({
+    const [userStore] = createStore<UserStore>({
       name: "Tom",
       age: 18,
     });
@@ -300,7 +300,7 @@ describe("test simple-store", () => {
   });
 
   test("async update", async () => {
-    const userStore = createStore<UserStore>({
+    const [userStore] = createStore<UserStore>({
       name: "Tom",
       age: 18,
     });
@@ -351,7 +351,7 @@ describe("test simple-store", () => {
   });
 
   test("use update promise", async () => {
-    const userStore = createStore<UserStore>({
+    const [userStore] = createStore<UserStore>({
       name: "Tom",
       age: 18,
     });

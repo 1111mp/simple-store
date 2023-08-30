@@ -12,15 +12,16 @@ type UseStore<T> = {
   (depsFn?: DepFn<T>): [T, UpdateStore<T>];
   store?: T;
 };
+type ResetStore = (notify?: boolean) => void;
 
 export function createStore<T extends Store>(
   initial: T,
   initialFn?: (store: T) => Promise<T>
-): UseStore<T>;
+): [UseStore<T>, ResetStore];
 export function createStore<T extends Store>(
   initial: () => T,
   initialFn?: (store: T) => Promise<T>
-): UseStore<T>;
+): [UseStore<T>, ResetStore];
 export function createStore<T extends Store>(
   initial: T | (() => T),
   initialFn?: (store: T) => Promise<T>
@@ -90,13 +91,18 @@ export function createStore<T extends Store>(
     return [manager.getStore(), updateStore];
   };
 
+  const resetStore: ResetStore = (notify: boolean = true) => {
+    manager.resetStore();
+    notify && manager.notyfy();
+  };
+
   Object.defineProperty(useStore, "store", {
     get: function () {
       return manager.getStore();
     },
   });
 
-  return useStore;
+  return [useStore, resetStore];
 }
 
 function compare(oldDeps: unknown[], newDeps: unknown[]) {
