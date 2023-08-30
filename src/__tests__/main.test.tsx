@@ -1,6 +1,7 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 
 import { createStore } from "../";
+import { useEffect, useState } from "react";
 
 type UserStore = {
   name: string;
@@ -399,5 +400,95 @@ describe("test simple-store", () => {
     expect(asFragment()).toMatchSnapshot();
     expect(getByTestId("name")).toHaveTextContent("Jim");
     expect(getByTestId("age")).toHaveTextContent("16");
+  });
+
+  test("resetStore api", async () => {
+    const [userStore, resetUserStore] = createStore<UserStore>({
+      name: "Tom",
+      age: 18,
+    });
+
+    const Test: React.FC = () => {
+      const [{ name, age }, updateUserStore] = userStore();
+
+      useEffect(() => {
+        return () => {
+          resetUserStore();
+        };
+      }, []);
+
+      return (
+        <div>
+          Test
+          <br />
+          name: <span data-testid="test-name">{name}</span>
+          <br />
+          age: <span data-testid="test-age">{age}</span>
+          <br />
+          <button
+            onClick={() => {
+              updateUserStore((store) => ({
+                ...store,
+                name: "Jim",
+                age: 16,
+              }));
+            }}
+          >
+            update
+          </button>
+        </div>
+      );
+    };
+
+    const App: React.FC = () => {
+      const [show, setShow] = useState<boolean>(true);
+      const [{ name, age }] = userStore();
+
+      return (
+        <div>
+          App:
+          <br />
+          name: <span data-testid="app-name">{name}</span>
+          <br />
+          age: <span data-testid="app-age">{age}</span>
+          <br />
+          <button
+            onClick={() => {
+              setShow(false);
+            }}
+          >
+            hide
+          </button>
+          <br />
+          {show ? <Test /> : null}
+        </div>
+      );
+    };
+
+    const { asFragment, getByTestId, getByText, queryByTestId } = render(
+      <App />
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+    expect(getByTestId("app-name")).toHaveTextContent("Tom");
+    expect(getByTestId("app-age")).toHaveTextContent("18");
+    expect(getByTestId("test-name")).toHaveTextContent("Tom");
+    expect(getByTestId("test-age")).toHaveTextContent("18");
+
+    fireEvent.click(getByText("update"));
+
+    expect(asFragment()).toMatchSnapshot();
+    expect(getByTestId("app-name")).toHaveTextContent("Jim");
+    expect(getByTestId("app-age")).toHaveTextContent("16");
+    expect(getByTestId("test-name")).toHaveTextContent("Jim");
+    expect(getByTestId("test-age")).toHaveTextContent("16");
+
+    fireEvent.click(getByText("hide"));
+
+    expect(asFragment()).toMatchSnapshot();
+    expect(getByTestId("app-name")).toHaveTextContent("Tom");
+    expect(getByTestId("app-age")).toHaveTextContent("18");
+    expect(queryByTestId("test-name")).not.toBeInTheDocument();
+    expect(queryByTestId("test-age")).not.toBeInTheDocument();
   });
 });

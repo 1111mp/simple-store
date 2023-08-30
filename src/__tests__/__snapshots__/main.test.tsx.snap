@@ -398,6 +398,129 @@ exports[`test simple-store multiple component with depsFn 2`] = `
 </DocumentFragment>
 `;
 
+exports[`test simple-store resetStore api 1`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="app-name"
+    >
+      Tom
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="app-age"
+    >
+      18
+    </span>
+    <br />
+    <button>
+      hide
+    </button>
+    <br />
+    <div>
+      Test
+      <br />
+      name: 
+      <span
+        data-testid="test-name"
+      >
+        Tom
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="test-age"
+      >
+        18
+      </span>
+      <br />
+      <button>
+        update
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store resetStore api 2`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="app-name"
+    >
+      Jim
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="app-age"
+    >
+      16
+    </span>
+    <br />
+    <button>
+      hide
+    </button>
+    <br />
+    <div>
+      Test
+      <br />
+      name: 
+      <span
+        data-testid="test-name"
+      >
+        Jim
+      </span>
+      <br />
+      age: 
+      <span
+        data-testid="test-age"
+      >
+        16
+      </span>
+      <br />
+      <button>
+        update
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test simple-store resetStore api 3`] = `
+<DocumentFragment>
+  <div>
+    App:
+    <br />
+    name: 
+    <span
+      data-testid="app-name"
+    >
+      Tom
+    </span>
+    <br />
+    age: 
+    <span
+      data-testid="app-age"
+    >
+      18
+    </span>
+    <br />
+    <button>
+      hide
+    </button>
+    <br />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`test simple-store use update promise 1`] = `
 <DocumentFragment>
   <div>
